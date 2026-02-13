@@ -6,6 +6,19 @@ public class Food : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        /*var health =  other.gameObject.GetComponent<HealthV1>();
+          if (health != null)
+          {
+              health.TakeDamage(attackPoint);
 
+          }
+          Destroy(gameObject);*/
+        if (other.gameObject.TryGetComponent<HealthV1>(out HealthV1 health))
+        {
+            health.TakeDamage(attackPoint);
+        }
+        Destroy(gameObject);
+            
+        
     }
 }
